@@ -1,11 +1,11 @@
 body {
+    background-image: url("../images/film.jpg");
 
 }
 
-h4 {
+.itemlist {
     color: white;
     font-family: 'Roboto';
     font-size: 22px;
-    text-align: center;
     font-weight: bold;
 }
