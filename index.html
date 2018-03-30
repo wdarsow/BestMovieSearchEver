@@ -8,57 +8,68 @@
 
         <!--scripts-->
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-        <script src="js.js"></script>
+        <!-- Added link to the jQuery library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="./assets/javascript/js.js"></script>
      
         <!--links-->
         <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
         <link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet"> 
     
-    <!-- Bring in our bootstrap stylesheet -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <!-- Added link to the jQuery library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Bring in our bootstrap stylesheet -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    
 </head>
+
 <body>
      <div class="container">
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-			<div class="jumbotron">
-				  <h1 class="display-4">MovieQ</h1>
-				  <p class="lead">Only the world's best place to get movie information....like ever...</p>
-				  
-			</div>
-		</div>
-        <div class="col-md-2"></div>
-    </div>
-    <div class="row">
-        <div class="col-md-9">
-            <div class="form-group">
-                <label for="movie">Movie Title:</label>
-                <input type="movie" class="form-control" id="movieTitle" placeholder="Enter movie title">
-              </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="jumbotron">
+                    <h1 class="display-4">MovieQ</h1>
+                    <p class="lead">Only the world's best place to get movie information....like ever...</p>
+                    
+                </div>
+            </div>
+            <div class="col-md-2"></div>
         </div>
-        <div class="col-lg-3"></div>
-    </div>
-    <div class="row">
-        <div class="col-md-9">
-            <p id="actors">Actors: </p>
-            <p id="director">Directors: </p>
-            <p id="genre">Genre: </p>
-            <p id="lang">Language: </p>
-            <p id="plot">Plot: </p>
-            <p id="rating">Rating: </p>
-            <p id="year">Year: </p>
-            <p id="runTime">Run Time: </p>
+
+        <div class="row">
+            <div class="col-md-9">
+                <div class="form-group">
+                    <label for="movie">Movie Title:</label>
+                    <input type="movie" class="form-control" id="movieTitle" placeholder="Enter movie title">
+                </div>
+            </div>
+            <div class="col-lg-3"></div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <a href="www.placeholder.com">Link to Review</a>
+
+        <div class="row">
+            <div class="col-md-9">
+                <p id="actors">Actors: </p>
+                <p id="director">Director: </p>
+                <p id="genre">Genre: </p>
+                <p id="lang">Language: </p>
+                <p id="plot">Plot: </p>
+                <p id="rating">Rating: </p>
+                <p id="year">Year: </p>
+                <p id="runTime">Run Time: </p>
+                <a href="www.placeholder.com">Link to Review</a>
+            </div>
         </div>
-    </div>
-</div>   
+
+        <div class="row">
+            <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Top Articles
+                        </div>
+                        <div class="panel-body footer"></div>
+                    </div>
+            </div>
+        </div>
+    </div>   
     
 </body>
 </html>
