@@ -10,7 +10,7 @@
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
         <!-- Added link to the jQuery library -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="./assets/javascript/js.js"></script>
+
      
         <!--links-->
         <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
@@ -37,15 +37,30 @@
             <div class="col-md-2"></div>
         </div>
 
-        <div class="row">
-            <div class="col-md-9 itemlist">
-                <div class="form-group">
-                    <label for="movie">Movie Title:</label>
-                    <input type="movie" class="form-control" id="movieTitle" placeholder="Enter movie title">
+            <div class="row">
+
+                <div class="col-xs-4">
+                    <div class="itemlist">
+                        <div>Your list of movies</div>
+                        <div id="movielist"></div>
+                    </div>
                 </div>
+
+                <div class="col-xs-4">
+                    <form id="addform" class="inputbutton">
+                        <label for="btninput">
+                            <h3 class="itemlist">Enter movie title: </h3>
+                        </label>
+                        <input type="text" id="item">
+                        <button id="add" type="submit" value="Submit">Find Your Movie</button>
+                    </form>
+                </div>
+       
+                <div class="col-xs-4">
+                    <div class="instructions">Enter the movie you want to search for. If you wish to keep a list of movies, click "add to list (click on checkmark to remove from list)." You can send the list to your calendar by clicking on the calendar button</div>
+                </div>
+
             </div>
-            <div class="col-lg-3"></div>
-        </div>
 
         <form action="https://calendar.google.com/calendar?cid=YWdlN2szY2xiazR0cG5rcDNwOG00ZWIycmtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">
             <input type="submit" value="Would you like to add your list of movies to the Calender" />
@@ -76,6 +91,6 @@
             </div>
         </div>
     </div>   
-    
+    <script src="./assets/javascript/js.js"></script>
 </body>
 </html>
