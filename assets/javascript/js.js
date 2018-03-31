@@ -1,4 +1,8 @@
 'use strict';
 
-//testing a new branch - WD
-// test
+$("#add").on("click", function (event) {
+    event.preventDefault();
+    let movieTitle = $("#item").val();
+
+    $("#item").val("");
+});
