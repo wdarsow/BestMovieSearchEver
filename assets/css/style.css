@@ -10,6 +10,13 @@ body {
     font-weight: bold;
 }
 
+.instructions {
+    color: white;
+    font-family: 'Roboto';
+    font-size: 12px;
+    font-weight: bold;
+}
+
 .lead {
     text-align: center;
 }
