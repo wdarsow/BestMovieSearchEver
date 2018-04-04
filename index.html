@@ -4,21 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MovieQ</title>
+    <meta name="Description" content="" />
+    <meta name="Keywords" content="" />
+    <meta name="Author" content="AddEvent" />
+    <title>movieTitle</title>
 
         <!--scripts-->
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
         <!-- Added link to the jQuery library -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="./assets/javascript/js.js"></script>
+
      
         <!--links-->
-        <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
         <link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
     
         <!-- Bring in our bootstrap stylesheet -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        
+        
+        <meta charset="utf-8" />
+        
+        <!-- AddEvent theme css -->
+        <link rel="stylesheet" href="css/theme4.css" type="text/css" media="screen" />
+        
+        <!-- AddEvent -->
+        <script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js"></script>
+        
+        <!-- AddEvent Settings -->
+        <script type="text/javascript">
+            addeventatc.settings({
+                license: "replace-with-your-licensekey",
+                css: false
+            });
+        </script>
     
 </head>
 
@@ -36,27 +57,77 @@
             <div class="col-md-2"></div>
         </div>
 
-        <div class="row">
-            <div class="col-md-9">
-                <div class="form-group">
-                    <label for="movie">Movie Title:</label>
-                    <input type="movie" class="form-control" id="movieTitle" placeholder="Enter movie title">
-                </div>
-            </div>
-            <div class="col-lg-3"></div>
-        </div>
+            <div class="row">
 
-        <div class="row">
-            <div class="col-md-9">
-                <h4><p id="actors">Actors: </p></h4>
-                <h4><p id="director">Director: </p></h4>
-                <h4><p id="genre">Genre: </p></h4>
-                <h4><p id="lang">Language: </p></h4>
-                <h4><p id="plot">Plot: </p></h4>
-                <h4><p id="rating">Rating: </p></h4>
-                <h4><p id="year">Year: </p></h4>
-                <h4><p id="runTime">Run Time: </p></h4>
-                <h4><a href="www.placeholder.com">Link to Review</a></h4>
+                <div class="col-xs-4">
+                    <div class="itemlist">
+                        <div>Your list of movies</div>
+                        <div id="movielist"></div>
+                    </div>
+                </div>
+
+                <div class="col-xs-4">
+                    <form id="addform" class="inputbutton">
+                        <label for="btninput">
+                            <h3 class="itemlist">Enter movie title: </h3>
+                        </label>
+                        <input type="text" id="item">
+                        <button id="add" type="submit" value="Submit">Find Your Movie</button>
+                    </form>
+                </div>
+       
+                <div class="col-xs-4">
+                    <div class="instructions">Enter the movie you want to search for. If you wish to keep a list of movies, click "add to list (click on checkmark to remove from list)." You can send the list to your calendar by clicking on the calendar button</div>
+                </div>
+
+            </div>
+
+        <!-- Added link for google calender reminder -->
+        <!-- <form action="https://calendar.google.com/calendar?cid=YWdlN2szY2xiazR0cG5rcDNwOG00ZWIycmtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">
+            <input type="submit" value="Would you like to add your list of movies to the Calender" />
+        </form> -->
+
+        <!-- AddEvent button -->
+    <div class = "container">
+        <div class="addeventatc">
+            <div class="date">
+                <span class="mon">APR</span>
+                <span class="day">18</span>
+                <div class="bdr1"></div>
+                <div class="bdr2"></div>
+            </div>
+            <div class="container">
+                <p>
+                    <strong class="hed">Black Panther</strong>
+                    <span class="des">Location: Lagoon Cinema
+                        <br />When: 9 PM - 11 PM</span>
+                </p>
+            </div>
+            <span class="start">04/18/2018 09:00 AM</span>
+            <span class="end">04/18/2018 11:00 AM</span>
+            <span class="timezone">America/Minnesota</span>
+            <span class="title">Summary of the event</span>
+            <span class="description">Description of the event</span>
+            <span class="location">Location of the event</span>
+            <span class="organizer">Organizer</span>
+            <span class="organizer_email">Organizer e-mail</span>
+            <span class="all_day_event">false</span>
+            <span class="date_format">MM/DD/YYYY</span>
+        </div>
+    </div>
+
+
+        <div class="row Info">
+            <div class="col-md-9 itemlist">
+                <p id="actors">Actors: </p>
+                <p id="director">Director:</p>
+                <p id="genre">Genre: </p>
+                <p id="lang">Language:  </p>
+                <p id="plot">Plot: </p>
+                <p id="rating">Rating: </p>
+                <p id="year">Year: </p>
+                <p id="runTime">Run Time: </p>
+                <a href="www.placeholder.com">Link to Review</a>
             </div>
         </div>
 
@@ -71,6 +142,6 @@
             </div>
         </div>
     </div>   
-    
+    <script src="./assets/javascript/js.js"></script>
 </body>
 </html>
