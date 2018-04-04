@@ -9,12 +9,18 @@ $.ajax({
     }).done(function(result){
     console.log(result);
     })
+
+$("#add").on("click", function (event) {
+    event.preventDefault();
+    let movieTitle = $("#item").val();
+    $("#item").val("");
+    console.log(movieTitle);
+
 $.ajax({
-    url: movieReviewNYapiURL,
-    method: "GET"
-    }).done(function(result){
-    console.log(result);
-    })
-    document.addEventListener('keypress', function (e){
-        
-    })
+        url: movieReviewNYapiURL,
+        method: "GET"
+        }).done(function(result){
+        console.log(result);
+        })
+
+});

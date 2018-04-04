@@ -9,3 +9,32 @@ body {
     font-size: 22px;
     font-weight: bold;
 }
+
+.instructions {
+    color: white;
+    font-family: 'Roboto';
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.lead {
+    text-align: center;
+}
+
+.display-4 {
+    animation-name: expand;
+    animation-duration: 4s;
+    text-align: center;
+} 
+
+@keyframes expand {
+  0% {
+    letter-spacing: 0vw;
+  }
+  50% {
+    letter-spacing: 2vw;
+  }
+  100% {
+    letter-spacing: 0vw;
+  }
+}
