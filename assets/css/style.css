@@ -8,6 +8,7 @@ body {
     font-family: 'Roboto';
     font-size: 22px;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .instructions {
@@ -19,6 +20,12 @@ body {
 
 .lead {
     text-align: center;
+}
+
+.listbtn {
+    color: black;
+    font-size: 12px;
+    margin-bottom: 5px;
 }
 
 .display-4 {
