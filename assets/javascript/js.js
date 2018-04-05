@@ -8,7 +8,6 @@ let clickCounter = 0;
 let listItems;
 let listMovieTitle;
 
-
 // check to see if something is in listItems
 if (localStorage.getItem("listItems") === null) {
     listItems = [];
@@ -23,7 +22,6 @@ if (localStorage.getItem("listItems") === null) {
 localStorage.setItem("listItems", JSON.stringify(listItems));
 displayItems();
 
-
 // when a movie title is typed into the #item text box and the #add / Find Your Movie button is clicked
 // the function below executes. 
 
@@ -36,7 +34,7 @@ $(document).on("click", "#add", function (event) {
     };
 
     clickCounter++;
-    
+    console.log ("onclick");
     // variable declaration and assignments
     movieTitle = $("#item").val().trim();
     listMovieTitle = movieTitle;
@@ -61,8 +59,6 @@ $(document).on("click", "#add", function (event) {
 $("#item").val("");
 
 });
-
-
 
 // add the movie to the list (when button is pressed)
 $(".listbtn").on("click", function (event) {
