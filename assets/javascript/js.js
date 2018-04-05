@@ -1,7 +1,7 @@
 'use strict';
 
 let NYapiKey = "7d7d81b70c5a4f28b5e538f6012ea8ea"; 
-let movieReviewNYapiURL = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=" + NYapiKey + "&q=";
+let movieReviewNYapiURL = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=transformers&api-key=" + NYapiKey + "&q=";
 let articleSearchapiURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + NYapiKey + "&q=";
 $.ajax({
     url: articleSearchapiURL,
@@ -10,17 +10,70 @@ $.ajax({
     console.log(result);
     })
 
+    $.ajax({
+        url: movieReviewNYapiURL,
+        method: "GET"
+        }).then(function(result){
+        console.log(result); 
+        $('#review-link').attr('href', result.results[0].link.url);
+        })
+
+
+//event listener for submit click, calls the movie review tp display
 $("#add").on("click", function (event) {
     event.preventDefault();
     let movieTitle = $("#item").val();
     $("#item").val("");
     console.log(movieTitle);
 
-$.ajax({
+    $.ajax({
         url: movieReviewNYapiURL,
         method: "GET"
-        }).done(function(result){
-        console.log(result);
+        }).then(function(result){
+        console.log(result); 
+        $('#review-link').attr('href', result.results[0].link.url);
         })
+        
+});
+// initial variable declarations and assignments
+let movieTitle;
+let apiKey = "4b988a5c";
+let ajaxOmdbUrl;
+let clickCounter = 0;
+
+// when a movie title is typed into the #item text box and the #add / Find Your Movie button is clicked
+// the function below executes. 
+
+$(document).on("click", "#add", function (event) {
+    event.preventDefault();
+
+    // clear any span tags from previous searches if a user has searched for a movie before in the current browser session    
+    if(clickCounter > 0) {
+        $("span").remove(".movie-info");
+    };
+
+    clickCounter++;
+    
+    // variable declaration and assignments
+    movieTitle = $("#item").val().trim();
+    let ajaxOmdbUrl = "http://www.omdbapi.com/?t=" + movieTitle + "&apikey=" + apiKey;
+
+    // Ajax call and function that performs the DOM manipulation
+    $.ajax({
+        url: ajaxOmdbUrl,
+        method: "GET",
+    }).then(function(response) {
+        $("#actors").append(`<span class="movie-info">${response.Actors}</span>`);
+        $("#director").append(`<span class="movie-info">${response.Director}</span>`);
+        $("#genre").append(`<span class="movie-info">${response.Genre}</span>`);
+        $("#lang").append(`<span class="movie-info">${response.Language}</span>`);
+        $("#plot").append(`<span class="movie-info">${response.Plot}</span>`);
+        $("#rating").append(`<span class="movie-info">${response.Ratings[0].Value}</span>`);
+        $("#year").append(`<span class="movie-info">${response.Year}</span>`);
+        $("#runTime").append(`<span class="movie-info">${response.Runtime}</span>`);
+    });
+
+// clear the text box that contains the movie title
+$("#item").val("");
 
 });
