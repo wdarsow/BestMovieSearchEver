@@ -58,6 +58,10 @@ $(document).on("click", "#add", function (event) {
     }).then(function (result) {
         console.log(result);
         $('#review-link').attr('href', result.results[0].link.url);
+
+        console.log("link ", result.results[0].link.url);
+
+
     })
 
     let ajaxOmdbUrl = "http://www.omdbapi.com/?t=" + movieTitle + "&apikey=" + apiKey;
