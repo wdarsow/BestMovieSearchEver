@@ -1,14 +1,24 @@
 body {
     background-image: url("../images/film.jpg");
+}
 
+.check {
+    color: black;
+    height: 21px;
+    width: 25px;
 }
 
 .itemlist {
     color: white;
     font-family: 'Roboto';
-    font-size: 22px;
+    font-size: 16px;
     font-weight: bold;
+    margin-top: 0;
     margin-bottom: 10px;
+}
+
+.Info {
+    margin-top: 20px;
 }
 
 .instructions {
@@ -16,6 +26,11 @@ body {
     font-family: 'Roboto';
     font-size: 12px;
     font-weight: bold;
+}
+
+.col-md-8 > .jumbotron {
+    background-color: #20315A; 
+    color: white;
 }
 
 .lead {
@@ -39,7 +54,7 @@ body {
     letter-spacing: 0vw;
   }
   50% {
-    letter-spacing: 2vw;
+    letter-spacing: 1.5vw;
   }
   100% {
     letter-spacing: 0vw;
