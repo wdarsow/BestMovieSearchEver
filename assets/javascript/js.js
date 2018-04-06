@@ -1,9 +1,5 @@
 'use strict';
-
-
 let NYapiKey = "7d7d81b70c5a4f28b5e538f6012ea8ea"; 
-
-
 
 //event listener for submit click, calls the movie review tp display
 $(document).on("click", function (event) {
@@ -16,11 +12,11 @@ let movieReviewNYapiURL = "https://api.nytimes.com/svc/movies/v2/reviews/search.
         url: movieReviewNYapiURL,
         method: "GET"
         }).then(function(result){
-        console.log(result); 
+        console.log(result);
         $('#review-link').attr('href', result.results[0].link.url);
-        })
-
+    })
 });
+
 //loop through array, for i = 0, 
 //if movietitle == when equals name, 
 
