@@ -2,31 +2,16 @@
 
 
 let NYapiKey = "7d7d81b70c5a4f28b5e538f6012ea8ea"; 
-let movieReviewNYapiURL = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=transformers&api-key=" + NYapiKey + "&q=";
-let articleSearchapiURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + NYapiKey + "&q=";
-$.ajax({
-    url: articleSearchapiURL,
-    method: "GET"
-    }).done(function(result){
-    console.log(result);
-    })
 
-    $.ajax({
-        url: movieReviewNYapiURL,
-        method: "GET"
-        }).then(function(result){
-        console.log(result); 
-        $('#review-link').attr('href', result.results[0].link.url);
-        })
 
 
 //event listener for submit click, calls the movie review tp display
-$("#add").on("click", function (event) {
+$(document).on("click", function (event) {
     event.preventDefault();
     let movieTitle = $("#item").val();
-    $("#item").val("");
-    console.log(movieTitle);
-
+console.log(movieTitle);
+    
+let movieReviewNYapiURL = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query="+ movieTitle + "&api-key=" + NYapiKey + "&q=";
     $.ajax({
         url: movieReviewNYapiURL,
         method: "GET"
@@ -34,8 +19,11 @@ $("#add").on("click", function (event) {
         console.log(result); 
         $('#review-link').attr('href', result.results[0].link.url);
         })
-        
+
 });
+//loop through array, for i = 0, 
+//if movietitle == when equals name, 
+
 // initial variable declarations and assignments
 let movieTitle;
 let apiKey = "4b988a5c";
@@ -151,4 +139,4 @@ $(document).on("click", ".check", function () {
     localStorage.setItem("listItems", JSON.stringify(listItems));
     displayItems();
 });
-
+})
