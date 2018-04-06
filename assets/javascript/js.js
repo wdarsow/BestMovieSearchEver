@@ -4,20 +4,6 @@
 let NYapiKey = "7d7d81b70c5a4f28b5e538f6012ea8ea"; 
 let movieReviewNYapiURL = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=transformers&api-key=" + NYapiKey + "&q=";
 let articleSearchapiURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + NYapiKey + "&q=";
-$.ajax({
-    url: articleSearchapiURL,
-    method: "GET"
-    }).done(function(result){
-    console.log(result);
-    })
-
-    $.ajax({
-        url: movieReviewNYapiURL,
-        method: "GET"
-        }).then(function(result){
-        console.log(result); 
-        $('#review-link').attr('href', result.results[0].link.url);
-        })
 
 
 // initial variable declarations and assignments
@@ -59,8 +45,12 @@ $(document).on("click", "#add", function (event) {
     // variable declaration and assignments
     movieTitle = $("#item").val().trim();
     listMovieTitle = movieTitle;
+    console.log("movietitle ", movieTitle);
+    //input validation
+    if (movieTitle === ""){
+        $("#errormsg").text("need input");
+    } else {
 
-    $("#item").val("");
 
     $.ajax({
         url: movieReviewNYapiURL,
@@ -87,9 +77,9 @@ $(document).on("click", "#add", function (event) {
         $("#runTime").append(`<span class="movie-info">${response.Runtime}</span>`);
     });
 
-// clear the text box that contains the movie title
-$("#item").val("");
-
+    // clear the text box that contains the movie title
+    $("#item").val("");
+  }
 });
 
 
