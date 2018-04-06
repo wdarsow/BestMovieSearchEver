@@ -20,34 +20,6 @@ $.ajax({
         })
 
 
-//event listener for submit click, calls the movie review tp display
-$("#add").on("click", function (event) {
-    event.preventDefault();
-    let movieTitle = $("#item").val();
-    $("#item").val("");
-    console.log(movieTitle);
-
-    $.ajax({
-        url: movieReviewNYapiURL,
-        method: "GET"
-        }).then(function(result){
-        console.log(result); 
-        $('#review-link').attr('href', result.results[0].link.url);
-        })
-        
-});
-// initial variable declarations and assignments
-let movieTitle;
-let apiKey = "4b988a5c";
-let ajaxOmdbUrl;
-let clickCounter = 0;
-
-// when a movie title is typed into the #item text box and the #add / Find Your Movie button is clicked
-// the function below executes. 
-
-$(document).on("click", "#add", function (event) {
-    event.preventDefault();
-
 // initial variable declarations and assignments
 let movieTitle;
 let apiKey = "4b988a5c";
@@ -84,14 +56,19 @@ $(document).on("click", "#add", function (event) {
 
     clickCounter++;
 
-    
-    // variable declaration and assignments
-    movieTitle = $("#item").val().trim();
-
-    console.log ("onclick");
     // variable declaration and assignments
     movieTitle = $("#item").val().trim();
     listMovieTitle = movieTitle;
+
+    $("#item").val("");
+
+    $.ajax({
+        url: movieReviewNYapiURL,
+        method: "GET"
+    }).then(function (result) {
+        console.log(result);
+        $('#review-link').attr('href', result.results[0].link.url);
+    })
 
     let ajaxOmdbUrl = "http://www.omdbapi.com/?t=" + movieTitle + "&apikey=" + apiKey;
 
