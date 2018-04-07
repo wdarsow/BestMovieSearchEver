@@ -1,8 +1,9 @@
+
 'use strict';
 
 // initial variable declarations and assignments
 
-let NYapiKey = "7d7d81b70c5a4f28b5e538f6012ea8ea"; 
+let NYapiKey = "7d7d81b70c5a4f28b5e538f6012ea8ea";
 let movieReviewNYapiURL = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=transformers&api-key=" + NYapiKey + "&q=";
 let articleSearchapiURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + NYapiKey + "&q=";
 
@@ -32,22 +33,23 @@ $(document).on("click", "#add", function (event) {
 
     console.log("movietitle ", movieTitle);
     //input validation
-    if (movieTitle === ""){
+    if (movieTitle === "") {
         $("#errormsg").text("Input box blank");
     } else {
 
-    // Ajax call to the NYT and function that performs the DOM manipulation
-    $.ajax({
-        url: movieReviewNYapiURL,
-        method: "GET"
-    }).then(function (result) {
-        console.log(result);
-        $('#review-link').attr('href', result.results[0].link.url);
+        // Ajax call to the NYT and function that performs the DOM manipulation
+        $.ajax({
+            url: movieReviewNYapiURL,
+            method: "GET"
+        }).then(function (result) {
+            console.log(result);
+            $('#review-link').attr('href', result.results[0].link.url);
 
-        console.log("link ", result.results[0].link.url);
+            console.log("link ", result.results[0].link.url);
 
 
-    })
+        })
+
 
 
     let ajaxOmdbUrl = "http://www.omdbapi.com/?t=" + movieTitle + "&apikey=" + apiKey;
@@ -57,6 +59,7 @@ $(document).on("click", "#add", function (event) {
         url: ajaxOmdbUrl,
         method: "GET",
     }).then(function(response) {
+        $("#title").append(`<span class="movie-info">${response.Title}</span>`);
         $("#actors").append(`<span class="movie-info">${response.Actors}</span>`);
         $("#director").append(`<span class="movie-info">${response.Director}</span>`);
         $("#genre").append(`<span class="movie-info">${response.Genre}</span>`);
@@ -65,9 +68,6 @@ $(document).on("click", "#add", function (event) {
         $("#rating").append(`<span class="movie-info">${response.Ratings[0].Value}</span>`);
         $("#year").append(`<span class="movie-info">${response.Year}</span>`);
         $("#runTime").append(`<span class="movie-info">${response.Runtime}</span>`);
-    }).catch(function(error){
-        $("#errormsg").text(`Error: ${error.responseJSON.Error} Please try again.`);
-
         // Retrieving the URL for the image
         let imgURL = response.Poster;
         console.log("response.Poster ", response.Poster);
@@ -76,6 +76,10 @@ $(document).on("click", "#add", function (event) {
         let image = $("<img>").attr("src", imgURL);
         // Appending the image
         $("#movie-poster").append(image);
+
+    }).catch(function(error){
+        $("#errormsg").text(`Error: ${error.responseJSON.Error} Please try again.`);
+
 
     });
 
