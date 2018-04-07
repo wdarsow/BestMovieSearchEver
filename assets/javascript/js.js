@@ -44,7 +44,7 @@ $(document).on("click", "#add", function (event) {
     });
 
 
-    let ajaxOmdbUrl = "https://www.omdbapi.com/?t=" + movieTitle + "&apikey=" + apiKey;
+    let ajaxOmdbUrl = "http://www.omdbapi.com/?t=" + movieTitle + "&apikey=" + apiKey;
 
     // Ajax call to the OMDB and function that performs the DOM manipulation
     $.ajax({
