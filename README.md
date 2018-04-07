@@ -1,17 +1,27 @@
-#BestMovieSearchEver
-(Tenative Title) "The Best Movie Search Ever"
-The site allows a user to search for their movie of choice, upon searching the user is given the current movie poster, RottenTomatoes movie ratings, casting information, and the top articles (maximum 5) from the New York Times relating to the film.
+**Movie Quest**
 
-Built With: 
-New York Times API
-OMDB API 
-JQuery 
-Bootstrap 
+Movie Quest allows a user to search for their movie of choice, and upon searching the user is given: 
 
-#BestMovieSearchEver is licensed under the MIT license
+  Relevant movie information: length of movie, language, & casting information
+  The current movie poster 
+  Link to the most relevant movie review from the NY Times
 
-Authors:
-Joan Verba
-Wade Darsow
-Sean FLick
-Oluwafemi Oyedeji
+**Built With:**
+- [OMDB](http://www.omdbapi.com/) API 
+- [New York Times](https://developer.nytimes.com/) API
+- JQuery 
+- Bootstrap
+- Keyframes
+- Trello 
+
+Movie Quest is licensed under the MIT license
+
+**Authors:**
+- Joan Verba
+- Wade Darsow
+- Sean Flick
+- Oluwafemi Oyedeji
+- Maggie Rassett
+    
+
+> Thank you to the instructor & teacher assistants who helped us work out a few bugs on the way.
