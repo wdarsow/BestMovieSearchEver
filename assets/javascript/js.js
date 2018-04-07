@@ -1,5 +1,5 @@
 'use strict';
-let NYapiKey = "7d7d81b70c5a4f28b5e538f6012ea8ea"; 
+let NYapiKey = "7d7d81b70c5a4f28b5e538f6012ea8ea";
 let articleSearchapiURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + NYapiKey + "&q=";
 
 
@@ -33,7 +33,7 @@ $(document).on("click", "#add", function (event) {
 
 
     // clear any span tags from previous searches if a user has searched for a movie before in the current browser session    
-    if(clickCounter > 0) {
+    if (clickCounter > 0) {
         $("span").remove(".movie-info");
     };
 
@@ -44,43 +44,43 @@ $(document).on("click", "#add", function (event) {
     listMovieTitle = movieTitle;
     console.log("movietitle ", movieTitle);
     //input validation
-    if (movieTitle === ""){
+    if (movieTitle === "") {
         $("#errormsg").text("need input");
     } else {
 
-        let movieReviewNYapiURL = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=" + movieTitle + "&api-key=" + NYapiKey + "&q="; 
+        let movieReviewNYapiURL = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=" + movieTitle + "&api-key=" + NYapiKey + "&q=";
         $.ajax({
-        url: movieReviewNYapiURL,
-        method: "GET"
-    }).then(function (result) {
-        console.log(result);
-        for (let i = 0; i < 5; i++) {
-        (movieTitle === result.results[0].display_title.url);
-       $('#review-link').attr('href', result.results[0].link.url);
-        console.log("link ", result.results[0].link.url);
-    }  
-    })
+            url: movieReviewNYapiURL,
+            method: "GET"
+        }).then(function (result) {
+            console.log(result);
+           if    (movieTitle === result.results[0].display_title.url);{
+                $('#review-link').attr('href', result.results[0].link.url);
 
-    let ajaxOmdbUrl = "http://www.omdbapi.com/?t=" + movieTitle + "&apikey=" + apiKey;
+                console.log("link ", result.results[0].link.url);
+            }
+        })
 
-    // Ajax call and function that performs the DOM manipulation
-    $.ajax({
-        url: ajaxOmdbUrl,
-        method: "GET",
-    }).then(function(response) {
-        $("#actors").append(`<span class="movie-info">${response.Actors}</span>`);
-        $("#director").append(`<span class="movie-info">${response.Director}</span>`);
-        $("#genre").append(`<span class="movie-info">${response.Genre}</span>`);
-        $("#lang").append(`<span class="movie-info">${response.Language}</span>`);
-        $("#plot").append(`<span class="movie-info">${response.Plot}</span>`);
-        $("#rating").append(`<span class="movie-info">${response.Ratings[0].Value}</span>`);
-        $("#year").append(`<span class="movie-info">${response.Year}</span>`);
-        $("#runTime").append(`<span class="movie-info">${response.Runtime}</span>`);
-    });
+        let ajaxOmdbUrl = "http://www.omdbapi.com/?t=" + movieTitle + "&apikey=" + apiKey;
 
-    // clear the text box that contains the movie title
-    $("#item").val("");
-  }
+        // Ajax call and function that performs the DOM manipulation
+        $.ajax({
+            url: ajaxOmdbUrl,
+            method: "GET",
+        }).then(function (response) {
+            $("#actors").append(`<span class="movie-info">${response.Actors}</span>`);
+            $("#director").append(`<span class="movie-info">${response.Director}</span>`);
+            $("#genre").append(`<span class="movie-info">${response.Genre}</span>`);
+            $("#lang").append(`<span class="movie-info">${response.Language}</span>`);
+            $("#plot").append(`<span class="movie-info">${response.Plot}</span>`);
+            $("#rating").append(`<span class="movie-info">${response.Ratings[0].Value}</span>`);
+            $("#year").append(`<span class="movie-info">${response.Year}</span>`);
+            $("#runTime").append(`<span class="movie-info">${response.Runtime}</span>`);
+        });
+
+        // clear the text box that contains the movie title
+        $("#item").val("");
+    }
 });
 
 
