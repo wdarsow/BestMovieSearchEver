@@ -20,15 +20,14 @@ let clickCounter = 0;
 $(document).on("click", "#add", function (event) {
     event.preventDefault();
 
-
     // clear any span tags from previous searches if a user has searched for a movie before in the current browser session    
     if (clickCounter > 0) {
         $("span").remove(".movie-info");
     };
 
     clickCounter++;
-
     // variable declaration and assignments
+
     movieTitle = $("#item").val().trim();
 
     console.log("movietitle ", movieTitle);
@@ -66,6 +65,8 @@ $(document).on("click", "#add", function (event) {
         $("#rating").append(`<span class="movie-info">${response.Ratings[0].Value}</span>`);
         $("#year").append(`<span class="movie-info">${response.Year}</span>`);
         $("#runTime").append(`<span class="movie-info">${response.Runtime}</span>`);
+    }).catch(function(error){
+        $("#errormsg").text(`Error: ${error.responseJSON.Error} Please try again.`);
 
         // Retrieving the URL for the image
         let imgURL = response.Poster;
