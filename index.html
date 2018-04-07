@@ -29,9 +29,10 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                 <div class="jumbotron">
-                    <h1 class="display-4">MovieQ</h1>
+            
+                    <h1 class="display-4">Movie Quest</h1>
                     <p class="lead">Only the world's best place to get movie information....like ever...</p>
-                    
+             
                 </div>
             </div>
             <div class="col-md-2"></div>
@@ -42,6 +43,7 @@
                 <div class="col-xs-4">
                     <div class="itemlist">
                         <div>Your list of movies</div>
+                        <button type="button" class="listbtn">Add current movie to list</button>
                         <div id="movielist"></div>
                     </div>
                 </div>
@@ -57,25 +59,31 @@
                 </div>
        
                 <div class="col-xs-4">
-                    <div class="instructions">Enter the movie you want to search for. If you wish to keep a list of movies, click "add to list (click on checkmark to remove from list)." You can send the list to your calendar by clicking on the calendar button</div>
+                    <div class="instructions">Enter the movie you want to search for. If you wish to keep a list of movies, click "add to list" (click on checkmark to remove from list). You can send the list to your calendar by clicking on the calendar button</div>
                 </div>
 
             </div>
 
         <form action="https://calendar.google.com/calendar?cid=YWdlN2szY2xiazR0cG5rcDNwOG00ZWIycmtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">
-            <input type="submit" value="Would you like to add your list of movies to the Calender" />
+            <input type="submit" value="Would you like to add your list of movies to the calendar?" />
         </form>
 
         <div class="row Info">
             <div class="col-md-9 itemlist">
-                <p id="actors">Actors: </p>
-                <p id="director">Director:</p>
-                <p id="genre">Genre: </p>
+                <p id="actors">Actors:  </p>
+                <p id="director">Director:  </p>
+                <p id="genre">Genre:  </p>
                 <p id="lang">Language:  </p>
-                <p id="plot">Plot: </p>
-                <p id="rating">Rating: </p>
-                <p id="year">Year: </p>
-                <p id="runTime">Run Time: </p>
+                <p id="plot">Plot:  </p>
+                <p id="rating">Rating:  </p>
+                <p id="year">Year:  </p>
+                <p id="runTime">Run Time:  </p>
+                
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body panel-info">
                 <a href="www.placeholder.com">Link to Review</a>
             </div>
         </div>
