@@ -1,10 +1,9 @@
 **Movie Quest**
 
 Movie Quest allows a user to search for their movie of choice, and upon searching the user is given: 
-
-  Relevant movie information: length of movie, language, & casting information
-  The current movie poster 
-  Link to the most relevant movie review from the NY Times
+- Relevant movie information: length of movie, language, & casting information
+- The current movie poster 
+- Link to the most relevant movie review from the NY Times
 
 **Built With:**
 - [OMDB](http://www.omdbapi.com/) API 
