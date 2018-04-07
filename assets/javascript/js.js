@@ -21,15 +21,14 @@ let clickCounter = 0;
 $(document).on("click", "#add", function (event) {
     event.preventDefault();
 
-
     // clear any span tags from previous searches if a user has searched for a movie before in the current browser session    
     if (clickCounter > 0) {
         $("span").remove(".movie-info");
     };
 
     clickCounter++;
-
     // variable declaration and assignments
+
     movieTitle = $("#item").val().trim();
 
     console.log("movietitle ", movieTitle);
@@ -52,36 +51,41 @@ $(document).on("click", "#add", function (event) {
         })
 
 
-        let ajaxOmdbUrl = "http://www.omdbapi.com/?t=" + movieTitle + "&apikey=" + apiKey;
 
-        // Ajax call to the OMDB and function that performs the DOM manipulation
-        $.ajax({
-            url: ajaxOmdbUrl,
-            method: "GET",
-        }).then(function (response) {
-            $("#title").append(`<span class="movie-info">${response.Title}</span>`);
-            $("#actors").append(`<span class="movie-info">${response.Actors}</span>`);
-            $("#director").append(`<span class="movie-info">${response.Director}</span>`);
-            $("#genre").append(`<span class="movie-info">${response.Genre}</span>`);
-            $("#lang").append(`<span class="movie-info">${response.Language}</span>`);
-            $("#plot").append(`<span class="movie-info">${response.Plot}</span>`);
-            $("#rating").append(`<span class="movie-info">${response.Ratings[0].Value}</span>`);
-            $("#year").append(`<span class="movie-info">${response.Year}</span>`);
-            $("#runTime").append(`<span class="movie-info">${response.Runtime}</span>`);
+    let ajaxOmdbUrl = "http://www.omdbapi.com/?t=" + movieTitle + "&apikey=" + apiKey;
 
-            // Retrieving the URL for the image
-            let imgURL = response.Poster;
-            console.log("response.Poster ", response.Poster);
-            console.log("imgURL ", imgURL);
-            // Creating an element to hold the image
-            let image = $("<img>").attr("src", imgURL);
-            // Appending the image
-            $("#movie-poster").append(image);
+    // Ajax call to the OMDB and function that performs the DOM manipulation
+    $.ajax({
+        url: ajaxOmdbUrl,
+        method: "GET",
+    }).then(function(response) {
+        $("#title").append(`<span class="movie-info">${response.Title}</span>`);
+        $("#actors").append(`<span class="movie-info">${response.Actors}</span>`);
+        $("#director").append(`<span class="movie-info">${response.Director}</span>`);
+        $("#genre").append(`<span class="movie-info">${response.Genre}</span>`);
+        $("#lang").append(`<span class="movie-info">${response.Language}</span>`);
+        $("#plot").append(`<span class="movie-info">${response.Plot}</span>`);
+        $("#rating").append(`<span class="movie-info">${response.Ratings[0].Value}</span>`);
+        $("#year").append(`<span class="movie-info">${response.Year}</span>`);
+        $("#runTime").append(`<span class="movie-info">${response.Runtime}</span>`);
+        // Retrieving the URL for the image
+        let imgURL = response.Poster;
+        console.log("response.Poster ", response.Poster);
+        console.log("imgURL ", imgURL);
+        // Creating an element to hold the image
+        let image = $("<img>").attr("src", imgURL);
+        // Appending the image
+        $("#movie-poster").append(image);
 
-        });
+    }).catch(function(error){
+        $("#errormsg").text(`Error: ${error.responseJSON.Error} Please try again.`);
 
 
-        // clear the text box that contains the movie title
-        $("#item").val("");
-    }
+    });
+
+
+    // clear the text box that contains the movie title
+    $("#item").val("");
+  }
 });
+
