@@ -1,36 +1,7 @@
 'use strict';
 let NYapiKey = "7d7d81b70c5a4f28b5e538f6012ea8ea"; 
+let articleSearchapiURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + NYapiKey + "&q=";
 
-//event listener for submit click, calls the movie review tp display
-$(document).on("click", function (event) {
-    event.preventDefault();
-    let movieTitle = $("#item").val();
-console.log(movieTitle);
-    
-let movieReviewNYapiURL = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query="+ movieTitle + "&api-key=" + NYapiKey + "&q=";
-    $.ajax({
-        url: movieReviewNYapiURL,
-        method: "GET"
-        }).then(function(result){
-        console.log(result);
-        $('#review-link').attr('href', result.results[0].link.url);
-    })
-});
-
-//loop through array, for i = 0, 
-//if movietitle == when equals name, 
-
-// initial variable declarations and assignments
-let movieTitle;
-let apiKey = "4b988a5c";
-let ajaxOmdbUrl;
-let clickCounter = 0;
-
-// when a movie title is typed into the #item text box and the #add / Find Your Movie button is clicked
-// the function below executes. 
-
-$(document).on("click", "#add", function (event) {
-    event.preventDefault();
 
 // initial variable declarations and assignments
 let movieTitle;
@@ -68,14 +39,27 @@ $(document).on("click", "#add", function (event) {
 
     clickCounter++;
 
-    
-    // variable declaration and assignments
-    movieTitle = $("#item").val().trim();
-
-    console.log ("onclick");
     // variable declaration and assignments
     movieTitle = $("#item").val().trim();
     listMovieTitle = movieTitle;
+    console.log("movietitle ", movieTitle);
+    //input validation
+    if (movieTitle === ""){
+        $("#errormsg").text("need input");
+    } else {
+
+        let movieReviewNYapiURL = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=" + movieTitle + "&api-key=" + NYapiKey + "&q="; 
+        $.ajax({
+        url: movieReviewNYapiURL,
+        method: "GET"
+    }).then(function (result) {
+        console.log(result);
+        for (let i = 0; i < 5; i++) {
+        (movieTitle === result.results[0].display_title.url);
+       $('#review-link').attr('href', result.results[0].link.url);
+        console.log("link ", result.results[0].link.url);
+    }  
+    })
 
     let ajaxOmdbUrl = "http://www.omdbapi.com/?t=" + movieTitle + "&apikey=" + apiKey;
 
@@ -94,9 +78,9 @@ $(document).on("click", "#add", function (event) {
         $("#runTime").append(`<span class="movie-info">${response.Runtime}</span>`);
     });
 
-// clear the text box that contains the movie title
-$("#item").val("");
-
+    // clear the text box that contains the movie title
+    $("#item").val("");
+  }
 });
 
 
@@ -135,4 +119,4 @@ $(document).on("click", ".check", function () {
     localStorage.setItem("listItems", JSON.stringify(listItems));
     displayItems();
 });
-})
+
