@@ -22,7 +22,7 @@ $(document).on("click", "#add", function (event) {
 
 
     // clear any span tags from previous searches if a user has searched for a movie before in the current browser session    
-    if(clickCounter > 0) {
+    if (clickCounter > 0) {
         $("span").remove(".movie-info");
     };
 
