@@ -18,6 +18,7 @@ $(document).on("click", "#add", function (event) {
     if (clickCounter > 0) {
         $("span").remove(".movie-info");
     };
+    $("#movie-poster").empty();
     clickCounter++;
     // variable declaration and assignments
     movieTitle = $("#item").val().trim();
@@ -33,11 +34,15 @@ $(document).on("click", "#add", function (event) {
         method: "GET"
     }).then(function (result){
         console.log(result);
-        if (movieTitle === result.results[0].display_title.url);{
-        $('#review-link').attr('href', result.results[0].link.url);
-        console.log("link ", result.results[0].link.url);
-    }
-});
+        for (let i=0; i<result.num_results; i++) {
+            if (movieTitle === result.results[i].display_title) {
+                console.log("loop ", result.results[i].display_title);
+                $('#review-link').attr('href', result.results[i].link.url);
+                console.log(" NYT link ", result.results[i].link.url);
+            };
+        };
+    });
+
 
     let ajaxOmdbUrl = "http://www.omdbapi.com/?t=" + movieTitle + "&apikey=" + apiKey;
 
@@ -46,6 +51,7 @@ $(document).on("click", "#add", function (event) {
         url: ajaxOmdbUrl,
         method: "GET",
     }).then(function(response) {
+        console.log('movie ', response);
         $("#title").append(`<span class="movie-info">${response.Title}</span>`);
         $("#actors").append(`<span class="movie-info">${response.Actors}</span>`);
         $("#director").append(`<span class="movie-info">${response.Director}</span>`);
@@ -62,7 +68,7 @@ $(document).on("click", "#add", function (event) {
         // Creating an element to hold the image
         let image = $("<img>").attr("src", imgURL);
         // Appending the image
-        $("#movie-poster").append(image);
+        if (imgURL !== "N/A") {$("#movie-poster").append(image);};
 
     }).catch(function(error){
         $("#errormsg").text(`Error: ${error.responseJSON.Error} Please try again.`);
