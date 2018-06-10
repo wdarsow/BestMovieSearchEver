@@ -21,7 +21,6 @@ Movie Quest is licensed under the MIT license
 - Wade Darsow
 - Sean Flick
 - Oluwafemi Oyedeji
-- Maggie Rassett
-    
+- Maggie Rassett  
 
-> Thank you to the instructor & teacher assistants who helped us work out a few bugs on the way.
+This project has been deployed at the following URL: https://wdarsow.github.io/BestMovieSearchEver/  
